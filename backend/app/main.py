@@ -11,7 +11,7 @@ app = FastAPI(title="LinguaSnap API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","http://localhost:5173"],
+    allow_origins=["http://localhost:3000","http://localhost:5173","*"],
     
     allow_credentials=True,
     allow_methods=["*"],
@@ -20,6 +20,7 @@ app.add_middleware(
 
 app.include_router(auth.router)
 app.include_router(phrases.router)       # ← added
+
 app.include_router(progress_router)
 app.include_router(progress_router)
 @app.get("/health")
