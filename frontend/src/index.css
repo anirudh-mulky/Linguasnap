@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:   #58CC02;
+  --green-dk:#46a302;
+  --green-lt:#E5FFC2;
+  --blue:    #1CB0F6;
+  --blue-lt: #E8F7FF;
+  --orange:  #FF9600;
+  --orange-lt:#FFF0CC;
+  --red:     #FF4B4B;
+  --red-lt:  #FFECEC;
+  --purple:  #CE82FF;
+  --yellow:  #FFC800;
+  --bg:      #F7F7F7;
+  --card:    #FFFFFF;
+  --border:  #E5E5E5;
+  --text:    #3C3C3C;
+  --muted:   #AFAFAF;
+  --radius:  16px;
+  --radius-sm: 10px;
+  --radius-xl: 24px;
+}
+
+.dark {
+  --bg:    #111827;
+  --card:  #1F2937;
+  --border:#374151;
+  --text:  #F9FAFB;
+  --muted: #6B7280;
+}
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  background: var(--bg);
+  background-image: radial-gradient(circle at 80% 10%, #e5ffc244 0%, transparent 50%),
+                    radial-gradient(circle at 10% 80%, #e8f7ff44 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Duolingo-style button base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  cursor: pointer;
+  border: none;
+  transition: transform .1s, filter .1s;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:active { transform: translateY(2px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 4px 0 var(--green-dk);
+}
+.btn-primary:hover:not(:disabled) { filter: brightness(1.05); }
+.btn-primary:active { box-shadow: 0 2px 0 var(--green-dk); }
+
+.btn-secondary {
+  background: var(--card);
+  color: var(--blue);
+  border: 2.5px solid var(--blue);
+}
+.btn-secondary:hover:not(:disabled) { background: var(--blue-lt); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 2px solid var(--border);
+}
+.btn-ghost:hover:not(:disabled) { border-color: var(--muted); color: var(--text); }
+
+.btn-danger {
+  background: var(--card);
+  color: var(--red);
+  border: 2.5px solid var(--red);
+}
+.btn-danger:hover:not(:disabled) { background: var(--red-lt); }
+
+.btn-success {
+  background: var(--card);
+  color: var(--green);
+  border: 2.5px solid var(--green);
+}
+.btn-success:hover:not(:disabled) { background: var(--green-lt); }
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+
+/* XP bar */
+.xp-bar {
+  height: 14px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.xp-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 999px;
+  transition: width .6s cubic-bezier(.34,1.56,.64,1);
+}
+
+/* Difficulty pills */
+.pill-easy   { background: var(--green-lt); color: #2E7D00; }
+.pill-medium { background: var(--orange-lt); color: #CC7700; }
+.pill-hard   { background: var(--red-lt);   color: #CC0000; }
+
+.pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+/* Input */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--card);
+  outline: none;
+  transition: border-color .15s;
+}
+
+input:focus, select:focus {
+  border-color: var(--blue);
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* Streak badge */
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--orange);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 800;
+}
